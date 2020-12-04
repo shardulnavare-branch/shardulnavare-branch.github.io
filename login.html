@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>SN Branch Sample Website</title>
+  <title>Login Demo</title>
 
 
   <!-- Branch metatags -->
@@ -35,9 +35,11 @@
     // init Branch
     // Poitning to Shardul Sandbox
     // Initialize using a custom branch_match_id to set BFID
-    branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', {'branch_match_id':'862814341014504643'}, function(error, data) {
-               console.log(data);
-           });
+    branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', {
+      'branch_match_id': '862814341014504643'
+    }, function(error, data) {
+      console.log(data);
+    });
   </script>
 
 </head>
@@ -132,15 +134,15 @@
       console.log("Branch event logged");
     }
 
-  </script>
-
-  <script>
-  function setDeveloperId() {
-    branch.setIdentity("sn", function(err) {
-      console.log(err);
-    });
-    console.log("Developer Id set to - sn");
-  }
+    function setDeveloperId() {
+      branch.setIdentity(
+        "sn",
+        function(err) {
+          console.log(err);
+        }
+      );
+      console.log("Developer Id set to sn");
+    }
   </script>
 
 
