@@ -132,14 +132,15 @@
       console.log("Branch event logged");
     }
 
-    function setDeveloperId() {
-      branch.setIdentity("sn", function(err) {
-        console.log(err);
-      });
-      console.log("Developer Id set to - sn");
-    }
+  </script>
 
-
+  <script>
+  function setDeveloperId() {
+    branch.setIdentity("sn", function(err) {
+      console.log(err);
+    });
+    console.log("Developer Id set to - sn");
+  }
   </script>
 
 
