@@ -46,8 +46,9 @@
 
 <body>
 
-  <button onclick="logEvent()">Log event</button>
   <button onclick="setDeveloperId()">login</button>
+  <button onclick="logEvent()">Log event</button>
+  <button onclick="logout()">Logout</button>
 
   <script>
     function logEvent() {
@@ -142,6 +143,17 @@
         }
       );
       console.log("Developer Id set to sn");
+    }
+  </script>
+
+  <script>
+    function logout() {
+      branch.logout(
+        function(err) {
+          console.log(err);
+        }
+      );
+      console.log("User logout complete!");
     }
   </script>
 
