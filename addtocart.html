@@ -2,25 +2,26 @@
 <html lang="en" dir="ltr">
 
 <style>
-.btn-group button {
-  background-color: #318BDC;
-  border: 10px solid white;
-  color: white;
-  padding: 20px 48px;
-  cursor: pointer;
-  width: 50%;
-  display: block;
-  font-size: 20px;
-}
+  .btn-group button {
+    background-color: #318BDC;
+    border: 10px solid white;
+    color: white;
+    padding: 20px 48px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    font-size: 20px;
+  }
 
-.btn-group button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
+  .btn-group button:not(:last-child) {
+    border-bottom: none;
+    /* Prevent double borders */
+  }
 
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #3e8e41;
-}
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #3e8e41;
+  }
 </style>
 
 
@@ -64,14 +65,17 @@
 
 <body>
 
-<h1 style="text-align:center">Add To Cart</h1>
+  <h1 style="text-align:center">Add To Cart</h1>
 
-  <div class="btn-group">
-    <button onclick="setDeveloperId()">Login</button>
-    <button onclick="logEvent()">Add to Cart</button>
-    <button onclick="navigateToPurchase()">Checkout</button>
-    <button onclick="logout()">Logout</button>
+  <div class="text-center">
+    <div class="btn-group">
+      <button onclick="setDeveloperId()">Login</button>
+      <button onclick="logEvent()">Add to Cart</button>
+      <button onclick="navigateToPurchase()">Checkout</button>
+      <button onclick="logout()">Logout</button>
+    </div>
   </div>
+
 
   <script>
     function logEvent() {
