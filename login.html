@@ -46,6 +46,8 @@
 
 <body>
 
+  <input type="text" id="dev_id_input" placeholder="Enter devId">
+
   <button onclick="setDeveloperId()">Login</button>
   <button onclick="logEvent()">Log event</button>
   <button onclick="logout()">Logout</button>
@@ -136,13 +138,14 @@
     }
 
     function setDeveloperId() {
+      var developer_id = document.getElementById("dev_id_input");
       branch.setIdentity(
-        "sn",
+        developer_id,
         function(err) {
           console.log(err);
         }
       );
-      console.log("Developer Id set to sn");
+      console.log("Developer Id set to text input");
     }
   </script>
 
