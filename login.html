@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<style>
+.btn-group button {
+  background-color: #318BDC;
+  border: 10px solid white;
+  color: white;
+  padding: 20px 48px;
+  cursor: pointer;
+  width: 50%;
+  display: block;
+  font-size: 20px;
+}
 
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
 <head>
   <meta charset="utf-8">
-  <title>Login Demo</title>
+  <title>Login Text Demo</title>
 
 
   <!-- Branch metatags -->
@@ -36,7 +56,7 @@
     // Poitning to Shardul Sandbox
     // Initialize using a custom branch_match_id to set BFID
     branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', {
-      'branch_match_id': '862814341014504643'
+      'branch_match_id': '862814341014511111'
     }, function(error, data) {
       console.log(data);
     });
@@ -46,124 +66,125 @@
 
 <body>
 
-  <<<<<<< HEAD <input type="text" id="devId" placeholder="Enter devId">
 
-    =======
-    >>>>>>> parent of a30c946... Text input for dev_id
-    <button onclick="setDeveloperId()">Login</button>
-    <button onclick="logEvent()">Log event</button>
-    <button onclick="logout()">Logout</button>
+<h1>Purchase</h1>
 
-    <script>
-      function logEvent() {
+<input type="text" id="devId" placeholder="Enter devId">
 
-        var event_and_custom_data = {
-          "transaction_id": "tras_Id_1232343434",
-          "currency": "USD",
-          "revenue": 180.2,
-          "shipping": 10.5,
-          "tax": 13.5,
-          "coupon": "promo-1234",
-          "affiliation": "high_fi",
-          "description": "Preferred purchase",
-          "purchase_loc": "Palo Alto",
-          "store_pickup": "unavailable"
-        };
+<div class="btn-group">
+  <button onclick="setDeveloperId()">Login</button>
+  <button onclick="logEvent()">Complete Purchase</button>
+  <button onclick="logout()">Logout</button>
+</div>
 
-        var content_items = [{
-            "$content_schema": "COMMERCE_PRODUCT",
-            "$og_title": "Nike Shoe",
-            "$og_description": "Start loving your steps",
-            "$og_image_url": "http://example.com/img1.jpg",
-            "$canonical_identifier": "nike/1234",
-            "$publicly_indexable": false,
-            "$price": 101.2,
-            "$locally_indexable": true,
-            "$quantity": 1,
-            "$sku": "1101123445",
-            "$product_name": "Runner",
-            "$product_brand": "Nike",
-            "$product_category": "Sporting Goods",
-            "$product_variant": "XL",
-            "$rating_average": 4.2,
-            "$rating_count": 5,
-            "$rating_max": 2.2,
-            "$creation_timestamp": 1499892854966,
-            "$exp_date": 1499892854966,
-            "$keywords": ["sneakers", "shoes"],
-            "$address_street": "230 South LaSalle Street",
-            "$address_city": "Chicago",
-            "$address_region": "IL",
-            "$address_country": "US",
-            "$address_postal_code": "60604",
-            "$latitude": 12.07,
-            "$longitude": -97.5,
-            "$image_captions": ["my_img_caption1", "my_img_caption_2"],
-            "$condition": "NEW",
-            "$custom_fields": {
-              "foo1": "bar1",
-              "foo2": "bar2"
-            }
-          },
-          {
-            "$og_title": "Nike Woolen Sox",
-            "$canonical_identifier": "nike/5324",
-            "$og_description": "Fine combed woolen sox for those who love your foot",
-            "$publicly_indexable": false,
-            "$price": 80.2,
-            "$locally_indexable": true,
-            "$quantity": 5,
-            "$sku": "110112467",
-            "$product_name": "Woolen Sox",
-            "$product_brand": "Nike",
-            "$product_category": "Apparel & Accessories",
-            "$product_variant": "Xl",
-            "$rating_average": 3.3,
-            "$rating_count": 5,
-            "$rating_max": 2.8,
-            "$creation_timestamp": 1499892854966
+  <script>
+    function logEvent() {
+
+      var event_and_custom_data = {
+        "transaction_id": "tras_Id_1232343434",
+        "currency": "USD",
+        "revenue": 180.2,
+        "shipping": 10.5,
+        "tax": 13.5,
+        "coupon": "promo-1234",
+        "affiliation": "high_fi",
+        "description": "Preferred purchase",
+        "purchase_loc": "Palo Alto",
+        "store_pickup": "unavailable"
+      };
+
+      var content_items = [{
+          "$content_schema": "COMMERCE_PRODUCT",
+          "$og_title": "Nike Shoe",
+          "$og_description": "Start loving your steps",
+          "$og_image_url": "http://example.com/img1.jpg",
+          "$canonical_identifier": "nike/1234",
+          "$publicly_indexable": false,
+          "$price": 101.2,
+          "$locally_indexable": true,
+          "$quantity": 1,
+          "$sku": "1101123445",
+          "$product_name": "Runner",
+          "$product_brand": "Nike",
+          "$product_category": "Sporting Goods",
+          "$product_variant": "XL",
+          "$rating_average": 4.2,
+          "$rating_count": 5,
+          "$rating_max": 2.2,
+          "$creation_timestamp": 1499892854966,
+          "$exp_date": 1499892854966,
+          "$keywords": ["sneakers", "shoes"],
+          "$address_street": "230 South LaSalle Street",
+          "$address_city": "Chicago",
+          "$address_region": "IL",
+          "$address_country": "US",
+          "$address_postal_code": "60604",
+          "$latitude": 12.07,
+          "$longitude": -97.5,
+          "$image_captions": ["my_img_caption1", "my_img_caption_2"],
+          "$condition": "NEW",
+          "$custom_fields": {
+            "foo1": "bar1",
+            "foo2": "bar2"
           }
-        ];
-
-        var customer_event_alias = "sn custom alias";
-
-        branch.logEvent(
-          "PURCHASE",
-          event_and_custom_data,
-          content_items,
-          customer_event_alias,
-          function(err) {
-            console.log(err);
-          }
-        );
-        console.log("Branch event logged");
-      } <
-      script >
-        function setDeveloperId() {
-
-          var developer_id = document.getElementById("devId");
-          branch.setIdentity(
-            "sn",
-            function(err) {
-              console.log(err);
-            }
-          );
-          console.log("Developer Id set to sn");
+        },
+        {
+          "$og_title": "Nike Woolen Sox",
+          "$canonical_identifier": "nike/5324",
+          "$og_description": "Fine combed woolen sox for those who love your foot",
+          "$publicly_indexable": false,
+          "$price": 80.2,
+          "$locally_indexable": true,
+          "$quantity": 5,
+          "$sku": "110112467",
+          "$product_name": "Woolen Sox",
+          "$product_brand": "Nike",
+          "$product_category": "Apparel & Accessories",
+          "$product_variant": "Xl",
+          "$rating_average": 3.3,
+          "$rating_count": 5,
+          "$rating_max": 2.8,
+          "$creation_timestamp": 1499892854966
         }
-    </script>
+      ];
 
-    <script>
-      function logout() {
-        branch.logout(
-          function(err) {
-            console.log(err);
-          }
-        );
-        console.log("User logout complete!");
-      }
-    </script>
+      var customer_event_alias = "Custom_Event_Alias";
 
+      branch.logEvent(
+        "PURCHASE",
+        event_and_custom_data,
+        content_items,
+        customer_event_alias,
+        function(err) {
+          console.log(err);
+        }
+      );
+      console.log("Purchase Event logged");
+    }
 
+    function setDeveloperId() {
+      var devId = document.getElementById("devId").value;
+      branch.setIdentity(
+        "sn",
+        function(err) {
+          console.log(err);
+        }
+      );
+      console.log("Developer Id set to sn");
+      console.log("Text input is " + devId);
+    }
+  </script>
+
+  <script>
+    function logout() {
+      branch.logout(
+        function(err) {
+          console.log(err);
+        }
+      );
+      console.log("User logout complete!");
+    }
+  </script>
 </body>
 
 </html>
