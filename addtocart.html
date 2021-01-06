@@ -66,6 +66,8 @@
 
 <h1>Add To Cart</h1>
 
+<input type="text" id="devId" placeholder="Enter devId">
+
   <div class="btn-group">
     <button onclick="setDeveloperId()">Login</button>
     <button onclick="logEvent()">Add to Cart</button>
@@ -159,13 +161,14 @@
     }
 
     function setDeveloperId() {
+      var devId = document.getElementById("devId").value;
       branch.setIdentity(
-        "id_1205",
+        devId,
         function(err) {
           console.log(err);
         }
       );
-      console.log("Developer Id set to id_1205");
+      console.log("Developer Id set to " + devId);
     }
   </script>
 
