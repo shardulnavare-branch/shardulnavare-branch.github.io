@@ -46,8 +46,11 @@
 
 <body>
 
+<<<<<<< HEAD
   <input type="text" id="devId" placeholder="Enter devId">
 
+=======
+>>>>>>> parent of a30c946... Text input for dev_id
   <button onclick="setDeveloperId()">Login</button>
   <button onclick="logEvent()">Log event</button>
   <button onclick="logout()">Logout</button>
@@ -138,14 +141,17 @@
     }
 
     function setDeveloperId() {
+<<<<<<< HEAD
       var developer_id = document.getElementById("devId");
+=======
+>>>>>>> parent of a30c946... Text input for dev_id
       branch.setIdentity(
-        developer_id,
+        "sn",
         function(err) {
           console.log(err);
         }
       );
-      console.log("Developer Id set to text input");
+      console.log("Developer Id set to sn");
     }
   </script>
 
