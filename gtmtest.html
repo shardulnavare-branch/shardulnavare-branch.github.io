@@ -33,7 +33,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4GQCH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <h1>GTM Demo</h1>
-  
+
   <button onclick="logEvent()">Log event</button>
 
   <button onclick="changeJourney()">Journey Change</button>
@@ -41,7 +41,7 @@
     function logEvent() {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        'event': 'button-click'
+        'event': 'log-custom-event'
       });
     }
 
