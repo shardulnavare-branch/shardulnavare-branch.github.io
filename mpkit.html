@@ -102,15 +102,15 @@
 
   <div class="btn-group">
     <button onclick="setDeveloperId()">Login</button>
-    <button onclick="logEvent()">Add to Cart</button>
+    <button onclick="logCustomEvent()">Custom Event</button>
     <button onclick="logPurchaseEvent()">Purchase</button>
     <button onclick="logout()">Logout</button>
   </div>
 
   <script>
-    function logEvent() {
+    function logCustomEvent() {
       mParticle.logEvent(
-        'Add To Cart Button Pressed',
+        'Custom Event Logged',
         mParticle.EventType.Navigation, {
           'category': 'Destination Intro',
           'title': 'Paris'
