@@ -165,7 +165,7 @@
     function setDeveloperId() {
       var devId = document.getElementById("devId").value;
       branch.setIdentity(
-        "sn",
+        devId,
         function(err) {
           console.log(err);
         }
