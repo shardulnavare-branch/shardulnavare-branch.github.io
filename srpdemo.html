@@ -103,6 +103,7 @@ counterResetElem.addEventListener("click",()=>{
   updateDisplay();
 });
 
+
 hideBannerElem.addEventListener("click",()=>{
   hideBanner();
 });
@@ -113,6 +114,10 @@ showBannerElem.addEventListener("click",()=>{
 
 function updateDisplay(){
   counterDisplayElem.innerHTML = count;
+  if (count == 0) {
+    displayBanner();
+
+  }
 };
 
 
