@@ -70,12 +70,21 @@
 <button class="counter-minus">-</button>
 <button class="counter-plus">+</button>
 <button class="counter-reset">~</button>
+<button class="show-banner">Show Banner</button>
 
 <script type="text/javascript">
+
+
+branch.closeJourney(function(err, data) {
+  console.log(err, data);
+});
+
 let counterDisplayElem = document.querySelector('.counter-display');
 let counterMinusElem = document.querySelector('.counter-minus');
 let counterPlusElem = document.querySelector('.counter-plus');
 let counterResetElem = document.querySelector('.counter-reset');
+let showBannerElem = document.querySelector('.show-banner');
+
 
 let count = 7;
 
@@ -96,9 +105,18 @@ counterResetElem.addEventListener("click",()=>{
   updateDisplay();
 });
 
+showBannerElem.addEventListener("click",()=>{
+  displayBanner();
+});
+
 function updateDisplay(){
   counterDisplayElem.innerHTML = count;
 };
+
+
+function displayBanner() {
+  branch.track("pageview");
+}
 
 </script>
 
