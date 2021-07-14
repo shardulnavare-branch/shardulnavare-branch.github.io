@@ -66,26 +66,36 @@
 
 <body>
 
+<h1 class="counter-display">(..)</h1>
+<button class="counter-minus">-</button>
+<button class="counter-plus">+</button>
 
-<h1>SRP Demo</h1>
+<script type="text/javascript">
+let counterDisplayElem = document.querySelector('.counter-display');
+let counterMinusElem = document.querySelector('.counter-minus');
+let counterPlusElem = document.querySelector('.counter-plus');
 
-<input type="text" id="devId" placeholder="Enter devId">
+let count = 0;
 
-<div class="btn-group">
-  <button onclick="searchProduct()">Search Product</button>
-  <button onclick="resetCounter()">Reset Counter</button>
-</div>
+updateDisplay();
 
-  <script>
-    function logout() {
-      branch.logout(
-        function(err) {
-          console.log(err);
-        }
-      );
-      console.log("User logout complete!");
-    }
-  </script>
+counterPlusElem.addEventListener("click",()=>{
+  count++;
+  updateDisplay();
+}) ;
+
+counterMinusElem.addEventListener("click",()=>{
+  count--;
+  updateDisplay();
+});
+
+function updateDisplay(){
+  counterDisplayElem.innerHTML = count;
+};
+
+</script>
+
+
 </body>
 
 </html>
