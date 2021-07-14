@@ -70,19 +70,17 @@
 <button class="counter-minus">-</button>
 <button class="counter-plus">+</button>
 <button class="counter-reset">~</button>
+<button class="hide-banner">Hide Banner</button>
 <button class="show-banner">Show Banner</button>
 
 <script type="text/javascript">
 
 
-branch.closeJourney(function(err, data) {
-  console.log(err, data);
-});
-
 let counterDisplayElem = document.querySelector('.counter-display');
 let counterMinusElem = document.querySelector('.counter-minus');
 let counterPlusElem = document.querySelector('.counter-plus');
 let counterResetElem = document.querySelector('.counter-reset');
+let hideBannerElem = document.querySelector('.hide-banner');
 let showBannerElem = document.querySelector('.show-banner');
 
 
@@ -105,6 +103,10 @@ counterResetElem.addEventListener("click",()=>{
   updateDisplay();
 });
 
+hideBannerElem.addEventListener("click",()=>{
+  hideBanner();
+});
+
 showBannerElem.addEventListener("click",()=>{
   displayBanner();
 });
@@ -116,6 +118,12 @@ function updateDisplay(){
 
 function displayBanner() {
   branch.track("pageview");
+}
+
+function hideBanner() {
+  branch.closeJourney(function(err, data) {
+    console.log(err, data);
+  });
 }
 
 </script>
