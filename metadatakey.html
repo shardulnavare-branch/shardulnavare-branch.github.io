@@ -27,9 +27,7 @@
 
 
   <!-- Branch metatags -->
-  <meta name="branch:deeplink:numSearches" content="7" />
-
-
+  <!-- <meta name="branch:deeplink:numSearches" content="7" /> -->
 
   <script>
     // load Branch
@@ -56,7 +54,11 @@
     // init Branch
     // Poitning to Shardul Sandbox
 
-  branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm');
+    branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', {
+      'metadata': {'numSearches':'7'}
+    }, function(error, data) {
+      console.log(data);
+    });
   </script>
 
 </head>
