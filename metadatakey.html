@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <style>
-.btn-group button {
-  background-color: #318BDC;
-  border: 10px solid white;
-  color: white;
-  padding: 20px 48px;
-  cursor: pointer;
-  width: 50%;
-  display: block;
-  font-size: 20px;
-}
+  .btn-group button {
+    background-color: #318BDC;
+    border: 10px solid white;
+    color: white;
+    padding: 20px 48px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    font-size: 20px;
+  }
 
-.btn-group button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
+  .btn-group button:not(:last-child) {
+    border-bottom: none;
+    /* Prevent double borders */
+  }
 
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #3e8e41;
-}
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #3e8e41;
+  }
 </style>
+
 <head>
   <meta charset="utf-8">
   <title>Meta Data Key Targeting Demo</title>
 
+
+
+  <!-- Option 1: Host meta tag as a Branch tag -->
 
   <!-- Branch metatags -->
   <!-- <meta name="branch:deeplink:numSearches" content="7" /> -->
@@ -52,11 +57,21 @@
       "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking"
       .split(" "), 0);
     // init Branch
-    // Poitning to Shardul Sandbox
+
+    /*
+
+
+    /----------------- Option 2: Initialize Branch SDK with the meta data key ----------------/
 
     branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', {
       'metadata': {'numSearches':'7'}
     }, function(error, data) {
+      console.log(data);
+    });
+
+    */
+
+    branch.init('key_live_hhGTGV2GqyKIRchAQJHOlpmiyCd3xPfm', function(error, data) {
       console.log(data);
     });
   </script>
@@ -66,27 +81,34 @@
 <body>
 
 
-<button class="hide-banner">Hide Banner</button>
+  <button class="hide-banner">Hide Banner</button>
 
-<script type="text/javascript">
-
-
-let hideBannerElem = document.querySelector('.hide-banner');
+  <script type="text/javascript">
+    let hideBannerElem = document.querySelector('.hide-banner');
 
 
 
-hideBannerElem.addEventListener("click",()=>{
-  hideBanner();
-});
+    // --------------- Option 3: Call Track method with the targeted meta tag ----------------/
+
+    branch.track('pageview', { 'numSearches' : '7' } );
 
 
-function hideBanner() {
-  branch.closeJourney(function(err, data) {
-    console.log(err, data);
-  });
-}
+    hideBannerElem.addEventListener("click", () => {
+      hideBanner();
+    });
 
-</script>
+
+    function hideBanner() {
+      branch.closeJourney(function(err, data) {
+        console.log(err, data);
+      });
+    }
+
+
+
+
+
+  </script>
 
 
 </body>
