@@ -63,92 +63,20 @@
 
 <body>
 
-<h1 class="counter-display">(..)</h1>
-<button class="counter-minus">-</button>
-<button class="counter-plus">+</button>
-<button class="counter-reset">~</button>
+
 <button class="hide-banner">Hide Banner</button>
-<!-- <button class="show-banner">Show Banner</button>-->
-<button class="set-banner-data">Set Banner Data</button>
 
 <script type="text/javascript">
 
 
-let counterDisplayElem = document.querySelector('.counter-display');
-let counterMinusElem = document.querySelector('.counter-minus');
-let counterPlusElem = document.querySelector('.counter-plus');
-let counterResetElem = document.querySelector('.counter-reset');
 let hideBannerElem = document.querySelector('.hide-banner');
-let showBannerElem = document.querySelector('.show-banner');
-let setBannerDataElem = document.querySelector('.set-banner-data');
 
-
-let count = 6;
-
-updateDisplay();
-
-counterPlusElem.addEventListener("click",()=>{
-  count++;
-  updateDisplay();
-}) ;
-
-counterMinusElem.addEventListener("click",()=>{
-  count--;
-  updateDisplay();
-});
-
-counterResetElem.addEventListener("click",()=>{
-  count = 6;
-  updateDisplay();
-});
 
 
 hideBannerElem.addEventListener("click",()=>{
   hideBanner();
 });
 
-showBannerElem.addEventListener("click",()=>{
-  displayBanner();
-});
-
-setBannerDataElem.addEventListener("click",()=>{
-  setBannerData();
-});
-
-function updateDisplay(){
-  counterDisplayElem.innerHTML = count;
-  if (count == 0) {
-    displayBanner();
-
-  }
-};
-
-function setBannerData() {
-  // optional additional deep link data
-var linkData = {
-  campaign: 'content 123',
-  channel: 'facebook',
-  feature: 'dashboard',
-  stage: 'new user',
-  tags: [ 'tag1', 'tag2', 'tag3' ],
-  alias: '',
-  data: {
-    'custom_bool': true,
-    'custom_int': Date.now(),
-    'custom_string': 'custom data value',
-    '$og_title': 'Title',
-    '$og_description': 'Description',
-    '$og_image_url':'http://lorempixel.com/400/400'
-  }
-};
-
-branch.setBranchViewData(linkData);
-}
-
-
-function displayBanner() {
-  branch.track("pageview");
-}
 
 function hideBanner() {
   branch.closeJourney(function(err, data) {
