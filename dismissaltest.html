@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <style>
-.btn-group button {
-  background-color: #318BDC;
-  border: 10px solid white;
-  color: white;
-  padding: 20px 48px;
-  cursor: pointer;
-  width: 50%;
-  display: block;
-  font-size: 20px;
-}
+  .btn-group button {
+    background-color: #318BDC;
+    border: 10px solid white;
+    color: white;
+    padding: 20px 48px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    font-size: 20px;
+  }
 
-.btn-group button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
+  .btn-group button:not(:last-child) {
+    border-bottom: none;
+    /* Prevent double borders */
+  }
 
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #3e8e41;
-}
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #3e8e41;
+  }
 </style>
+
 <head>
   <meta charset="utf-8">
   <title>Dismissal Testing</title>
@@ -66,74 +68,63 @@
 
 <body>
 
-<h1 class="counter-display">(..)</h1>
-<button class="hide-banner">Hide Banner</button>
-<button class="show-banner">Show Banner</button>
-<button class="set-banner-data">Set Banner Data</button>
 
-<script type="text/javascript">
+  <button class="hide-banner">Hide Banner</button>
+  <button class="show-banner">Show Banner</button>
+  <button class="set-banner-data">Set Banner Data</button>
 
-
-let counterDisplayElem = document.querySelector('.counter-display');
-let hideBannerElem = document.querySelector('.hide-banner');
-let showBannerElem = document.querySelector('.show-banner');
-let setBannerDataElem = document.querySelector('.set-banner-data');
+  <script type="text/javascript">
+    let hideBannerElem = document.querySelector('.hide-banner');
+    let showBannerElem = document.querySelector('.show-banner');
+    let setBannerDataElem = document.querySelector('.set-banner-data');
 
 
-updateDisplay();
+
+    hideBannerElem.addEventListener("click", () => {
+      hideBanner();
+    });
+
+    showBannerElem.addEventListener("click", () => {
+      displayBanner();
+    });
+
+    setBannerDataElem.addEventListener("click", () => {
+      setBannerData();
+    });
 
 
-hideBannerElem.addEventListener("click",()=>{
-  hideBanner();
-});
+    function setBannerData() {
+      // optional additional deep link data
+      var linkData = {
+        campaign: 'content 123',
+        channel: 'facebook',
+        feature: 'dashboard',
+        stage: 'new user',
+        tags: ['tag1', 'tag2', 'tag3'],
+        alias: '',
+        data: {
+          'custom_bool': true,
+          'custom_int': Date.now(),
+          'custom_string': 'custom data value',
+          '$og_title': 'Title',
+          '$og_description': 'Description',
+          '$og_image_url': 'http://lorempixel.com/400/400'
+        }
+      };
 
-showBannerElem.addEventListener("click",()=>{
-  displayBanner();
-});
+      branch.setBranchViewData(linkData);
+    }
 
-setBannerDataElem.addEventListener("click",()=>{
-  setBannerData();
-});
+    function displayBanner() {
+      branch.track("pageview");
+    }
 
-function updateDisplay(){
-  counterDisplayElem.innerHTML = count;
-    displayBanner();
-};
-
-function setBannerData() {
-  // optional additional deep link data
-var linkData = {
-  campaign: 'content 123',
-  channel: 'facebook',
-  feature: 'dashboard',
-  stage: 'new user',
-  tags: [ 'tag1', 'tag2', 'tag3' ],
-  alias: '',
-  data: {
-    'custom_bool': true,
-    'custom_int': Date.now(),
-    'custom_string': 'custom data value',
-    '$og_title': 'Title',
-    '$og_description': 'Description',
-    '$og_image_url':'http://lorempixel.com/400/400'
-  }
-};
-
-branch.setBranchViewData(linkData);
-}
-
-
-function displayBanner() {
-  branch.track("pageview");
-}
-
-function hideBanner() {
-  branch.closeJourney(function(err, data) {
-    console.log(err, data);
-  });
-}
-
-</script>
+    function hideBanner() {
+      branch.closeJourney(function(err, data) {
+        console.log(err, data);
+      });
+    }
+  </script>
 
 
 </body>
